@@ -1,0 +1,55 @@
+#include<iostream.h>
+#include<conio.h>
+
+void showarr(int arr[10][10],int row,int column)
+{
+    for(int i=0;i<row;i++)
+    {
+    for (int j=0;j<column;j++)
+    { cout<<arr[i][j];
+      cout<<'\t';
+    }
+    cout<<'\n';
+    }
+}
+
+void swaparr(int arr[10][10], int row, int column)
+{     int temp[10];
+  for(int i=0;i<row;i++)
+  {
+    for (int j=0;j<column;j++)
+    {
+      temp[j]=arr[0][j];
+      arr[0][j]=arr[row-1][j];
+      arr[row-1][j]=temp[j] ;
+    }
+  }
+}
+
+int main()
+{ int arr[10][10];
+  int row,column=0;
+  cout<<"Enter how many rows";
+  cin>>row;
+  cout<<"How many columns:";
+  cin>>column;
+  for(int i=0;i<row;i++)
+  {
+    for (int j=0;j<column;j++)
+    {
+      cout<<"Enter element @ "<<i+1<<','<<j+1<<':';
+      cin>>arr[i][j];
+    }
+  }
+  showarr(arr,row,column);
+  cout<<"\n";
+
+  swaparr(arr,row,column);
+
+  showarr(arr,row,column);
+
+  getch();
+
+  return 0;
+
+}
